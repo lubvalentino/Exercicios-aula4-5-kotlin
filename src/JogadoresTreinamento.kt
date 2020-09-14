@@ -1,62 +1,40 @@
-open class JogadorDeFutebol(nome: String, energia: Int, alegria: Int, gols: Int, experiencia: Int){
+fun main (){
+    var jogador1 = JogadorDeFutebol("Luciana", 80, 60,6, 20)
+    val treinar = SessaoDeTreinamento ()
+    jogador1.fazerGol()
+    jogador1.correr()
+    println(jogador1.energia)
+    println(jogador1.alegria)
+    println(jogador1.gols)
+    treinar.treinarA(jogador1)
+    jogador1.experiencia
 
-    var nomeJogador = nome
-    var indEnergia = energia
-    var indAlegria = alegria
-    var numGols = gols
-    var indExperiencia = experiencia
+}
 
 
-    open fun fazerGol (golFeito: Int): Int {
+open class JogadorDeFutebol(var nome: String, var energia: Int, var alegria: Int, var gols: Int, var experiencia: Int){
 
-        if (golFeito ==1){
-            indEnergia -= 5
-            indAlegria += 10
-            numGols += 1
-            println("GOOOOL")
-            return numGols
-        } else{
-            return numGols
-        }
-
+    open fun fazerGol() {
+        energia -= 5
+        alegria += 10
+        gols += 1
+        println("GOOOLL")
     }
-
-    open fun correr (): Int {
-        indEnergia -= 10
+    open fun correr (){
+        energia -= 10
         println("Cansei")
-        return indEnergia
+    }
     }
 
-}
+class SessaoDeTreinamento  {
+    var experiencia = 1
 
-class SessaDeTreinamento (nome: String, energia: Int, alegria: Int, gols: Int, experiencia: Int) : JogadorDeFutebol (nome, energia, alegria, gols, experiencia){
-
-    override fun correr(): Int {
-        return super.correr()
+    fun treinarA (jogador: JogadorDeFutebol){      //paramentro de entrada o Jogador de futebol
+        println("Experiência inicial é ${jogador.experiencia}")
+        jogador.correr()
+        jogador.fazerGol()
+        jogador.correr()
+        jogador.experiencia += experiencia
+        print("Experiência inicial é ${jogador.experiencia}")
     }
-
-    override fun fazerGol(golFeito: Int): Int {
-        return super.fazerGol(golFeito)
-    }
-
-    fun treinarA () : Int{
-        super.fazerGol(1)
-        super.correr()
-        indExperiencia += 1
-        return indExperiencia
-    }
-}
-
-
-fun main(){
-    var jogador = JogadorDeFutebol("Ronaldo",30,6,5,7)
-    var novaExperiencia = SessaDeTreinamento (jogador.nomeJogador, jogador.indEnergia, jogador.indAlegria, jogador.numGols, jogador.indExperiencia)
-
-    //jogador.fazerGol(1)
-   // jogador.correr()
-    novaExperiencia.treinarA()
-
-    println("O jogador ${jogador.nomeJogador} está com energia ${jogador.indEnergia}, alegria ${jogador.indAlegria} e ${jogador.numGols} gols e tem experiencia " +
-            "${novaExperiencia.indExperiencia}")
-
 }
