@@ -68,7 +68,7 @@ class ContaCorrente (saldo: Double, nome: Clientes, var cheque: Cheque) : Conta 
         if (saldo > 0){
             println("O saldo é ${saldo}")
         } else{
-            println("Usando cheque especial, o saldo é ${saldo}")
+            println("Usando cheque especial, o saldo é ${saldo}")     //pode ser criado uma variavel de cheque especial para mencionar o limite
         }}
 
     fun depositarCheque () : Double {
