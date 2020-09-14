@@ -42,9 +42,6 @@ open class Conta (var saldo: Double, var nome: Clientes){
 }
 
 class ContaPoup (saldo: Double, nome: Clientes, var txjuros: Double) : Conta(saldo,nome){
-    override fun fazerDeposito(dinheiro: Double): Double {
-        return super.fazerDeposito(dinheiro)
-    }
 
     override fun sacar(dinheiro: Double){
         if (dinheiro < saldo){
@@ -65,9 +62,6 @@ class Cheque (var valor: Double, bancoEmissor: String, dtPagamento: String){
 }
 
 class ContaCorrente (saldo: Double, nome: Clientes, var cheque: Cheque) : Conta (saldo, nome){
-    override fun fazerDeposito(dinheiro: Double): Double {
-        return super.fazerDeposito(dinheiro)
-    }
 
     override fun sacar(dinheiro: Double) {
         saldo -= dinheiro
