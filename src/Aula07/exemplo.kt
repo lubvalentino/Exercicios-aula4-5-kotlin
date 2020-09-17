@@ -56,10 +56,6 @@ class RegistroRecebimentos {
         listaDeProdutos.forEach{
             total += it.totalizarReceita()
 
-//            when {
-//                it is ItemVenda -> println(it.tooString())
-//                it is Servico -> println(it.tooString())
-//            }
         }
 
     }
