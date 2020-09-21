@@ -14,11 +14,11 @@ fun main (){
             4 to "Dentista",
             5 to "Fogo")
 
-    val apelidos = mapOf<String,String>(
-            "João" to "Juan, Fissura, Maromba",
-            "Miguel" to "Night Watch, Bruce Wayne, Tampinha",
-            "Maria" to "Wonder Woman, Mary, MArilene",
-            "Lucas" to "Lukinha, Jorge, George"
+    val apelidos = mapOf(
+            "João" to listOf("Juan", "Fissura", "Maromba"),
+            "Miguel" to listOf("Night Watch", "Bruce Wayne", "Tampinha"),
+            "Maria" to listOf("Wonder Woman", "Mary", "Marilene"),
+            "Lucas" to listOf("Lukinha", "Jorge", "George")
     )
 
 class Exercicio1{
@@ -29,8 +29,11 @@ class Exercicio1{
     }
 
     fun apelidos (){
-        apelidos.forEach {
-            println(it)
+        apelidos.forEach {key, value ->
+            println(key)
+            value.forEach{
+                println("- $it")}
+
         }
     }
 }
