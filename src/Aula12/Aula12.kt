@@ -35,6 +35,7 @@ class LivrariaBiblioteca (nome: String, dataCriacao: String){
     val listaLivros: MutableList<Livro> = mutableListOf()
     var i = 0
     val colecao: MutableMap<Int,List<Livro>> = mutableMapOf()
+
     fun cadastrarLivros(livro: Livro){
         listaLivros.add(livro)
         println("O livro ${livro.titulo} do autor ${livro.autor} foi cadastrado com o código ${livro.codigo}")
@@ -42,7 +43,12 @@ class LivrariaBiblioteca (nome: String, dataCriacao: String){
 
     fun cadastrarColecao (listaColecao: MutableList<Livro>){
         colecao.put(i,listaColecao)
-        println("A coleção $i foi cadastrada com a lista de livros ${colecao.values}")
+        println("A colecao $i foi cadastrada com a lista de livros:")
+        for (item in listaColecao){
+            run {
+                println("- ${item.titulo} do autor ${item.autor} cadastrado com o código ${item.codigo}")
+            }
+        }
         i++
     }
 
@@ -138,3 +144,5 @@ class Funcionario (nome:String, rg:String,
                    historicoVendas: MutableList<Livro>){
 
 }
+
+
